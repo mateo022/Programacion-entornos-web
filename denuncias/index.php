@@ -101,7 +101,7 @@ while($row=$respuesta->fetch_array())
                 <td><?php echo $row ['Tipo']; ?></td>
                 <td><?php echo $row ['Placa']; ?></td>
                 <td><?php echo $row ['Denuncia']; ?></td>
-                <td><a href="eliminar_denuncia.php?id_para_borrar=<?php echo $row['id_pk']; ?>'">Eliminar</a></td>
+                <td><a href="eliminar_denuncia.php?id_para_borrar=<?php echo $row['id_pk']; ?>">Eliminar</a></td>
             </tr>
             <?php
             }
