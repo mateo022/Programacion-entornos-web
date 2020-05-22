@@ -9,20 +9,22 @@
 <style>
     html {
         height: 100%;
+        background=
     }
     
     body {
         height: 100%;
     }
     
+    
     .sesion {
-        height: 50%;
+        height: 90%;
         background-color: white;
     }
-    header{
-        height: 10%;
+    .header{
+        height: 20%;
     }
-    footer{
+    .footer{
         height: 10%;
 
     }
@@ -30,7 +32,9 @@
 
 <body>
     <div class="header">
+        <center>
         <h1>Denuncias Web App</h1>
+        </center>
         <p>Aplicacion web para el resgitro de denuncias del transporte publico en colombia </p>
         <p>Permite el control y la veduria </p>
     </div>
@@ -66,6 +70,8 @@
                 <button>Enviar</button>
             </div>
         </form>
+        <br>
+        <br>
         <?php
     //conexion entre nuestra app y el servidor
 $servername ="localhost";
@@ -101,7 +107,10 @@ while($row=$respuesta->fetch_array())
                 <td><?php echo $row ['Tipo']; ?></td>
                 <td><?php echo $row ['Placa']; ?></td>
                 <td><?php echo $row ['Denuncia']; ?></td>
-                <td><a href="eliminar_denuncia.php?id_para_borrar=<?php echo $row['id_pk']; ?>">Eliminar</a></td>
+                <td><a href="editarDenuncia.php?id_para_editar=<?php echo $row['id_pk']; ?>">Editar</a></td>
+                <td><a href="eliminar_denuncia.php?id_para_borrar=<?php echo $row['id_pk']; ?>"><svg class="bi bi-trash-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M2.5 1a1 1 0 00-1 1v1a1 1 0 001 1H3v9a2 2 0 002 2h6a2 2 0 002-2V4h.5a1 1 0 001-1V2a1 1 0 00-1-1H10a1 1 0 00-1-1H7a1 1 0 00-1 1H2.5zm3 4a.5.5 0 01.5.5v7a.5.5 0 01-1 0v-7a.5.5 0 01.5-.5zM8 5a.5.5 0 01.5.5v7a.5.5 0 01-1 0v-7A.5.5 0 018 5zm3 .5a.5.5 0 00-1 0v7a.5.5 0 001 0v-7z" clip-rule="evenodd"/>
+  </svg></a></td>
             </tr>
             <?php
             }
