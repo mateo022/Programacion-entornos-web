@@ -4,22 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aplicacion web denuncias</title>
+    <title>Aplicacion web denuncias Transito y Transporte</title>
 </head>
+
 <style>
     html {
         height: 100%;
-        background=
+        
     }
     
     body {
         height: 100%;
+        background-image: url("media/fondo.jpg");
+        background-repeat: no-repeat;
     }
+
     
     
     .sesion {
         height: 90%;
-        background-color: white;
+      
     }
     .header{
         height: 20%;
@@ -28,17 +32,20 @@
         height: 10%;
 
     }
+
+
 </style>
 
-<body>
+<body> 
     <div class="header">
         <center>
-        <h1>Denuncias Web App</h1>
+        <h1>Denuncias Web App Transito y Transporte</h1>
         </center>
         <p>Aplicacion web para el resgitro de denuncias del transporte publico en colombia </p>
         <p>Permite el control y la veduria </p>
     </div>
     <div class="sesion">
+    
         <h3>Registre aquí sus denuncias</h3>
         <form action="CrearDenuncias.php" method="POST">
             <div class="item-form">
