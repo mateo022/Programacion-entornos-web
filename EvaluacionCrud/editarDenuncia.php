@@ -1,33 +1,31 @@
 <?php
 
-$id= $_POST['input_id'];
-$Lugar = $_POST['input_Lugar'];
-$Fecha = $_POST['input_Fecha'];
-$Hora = $_POST['input_Hora'];
-$Tipo = $_POST['input_Tipo'];
-$Placa = $_POST['input_Placa'];
-$Denuncia = $_POST['input_Denuncia'];
+$num_tarea= $_POST['input_num_tarea'];
+$nombre = $_POST['input_nombre'];
+$descripcion= $_POST['input_descripcion'];
+$fecha= $_POST['input_fecha'];
+$prioridad= $_POST['input_prioridad'];
+$responsable= $_POST['input_responsable'];
 
-echo $id;
-echo "</br>";
-echo $Lugar;
-echo "</br>";
-echo $Fecha;
-echo "</br>";
-echo $Hora;
-echo "</br>";
-echo $Tipo;
-echo "</br>";
-echo $Placa;
-echo "</br>";
-echo $Denuncia;
-echo "</br>";
+
+echo $num_tarea;
+echo"</br>";
+echo $nombre;
+echo"</br>";
+echo $descripcion;
+echo"</br>";
+echo $fecha;
+echo"</br>";
+echo $prioridad;
+echo"</br>";
+echo $responsable;
+echo"</br>";
 
 //1. conexión entre nuestra app(php) y el servidor de bases de datos(mysql)
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "denuncias";
+$dbname = "evaluacionbd";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 if($conn->connect_error)
@@ -42,7 +40,7 @@ else
 
 //2. sentencia sql (CRUD: Create, Read, Update, Delete)
 
-$sql = "UPDATE denuncias_transporte SET Lugar='{$Lugar}', Fecha='{$Fecha}', Hora='{$Hora}', Tipo='{$Tipo}', Placa='{$Placa}', denuncia = '{$Denuncia}' WHERE id_pk='{$id}'";
+$sql = "UPDATE lista_tareas SET nombre='{$nombre}', descripcion='{$descripcion}', fecha='{$fecha}', prioridad='{$prioridad}', responsable='{$responsable}' WHERE num_tarea='{$num_tarea}'";
 
  //se lanza la consulta en la base de datos
 $respuesta = $conn->query($sql);

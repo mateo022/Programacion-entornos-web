@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aplicacion web denuncias Transito y Transporte</title>
+    <title>Aplicacion web creacion de tareas diarias</title>
 </head>
 
 <style>
@@ -15,7 +15,7 @@
     
     body {
         height: 100%;
-        background-image: url("media/fondo.jpg");
+        background-image: url("media/fondo2.jpg");
         background-repeat: no-repeat;
     }
 
@@ -32,6 +32,9 @@
         height: 10%;
 
     }
+    .parra{
+        font-size:23px;
+    }
 
 
 </style>
@@ -39,14 +42,17 @@
 <body> 
     <div class="header">
         <center>
-        <h1>Denuncias Web App Transito y Transporte</h1>
+        <h1>Lista de tareas pendientes</h1>
         </center>
-        <p>Aplicacion web para el resgitro de denuncias del transporte publico en colombia </p>
-        <p>Permite el control y la veduria </p>
+        <br>
+        <center>
+        <p class="parra">Aplicacion web para el registro de tareas, donde podra consultar, eliminar y editar su respectiva tarea </p>
     </div>
+    <center>
     <div class="sesion">
     
-        <h3>Registre aquí sus denuncias</h3>
+        <h3>Registre aquí sus tareas</h3>
+        <br>
         <form action="CrearDenuncias.php" method="POST">
             <div class="item-form">
                 <label for="">Nombre de la tarea:</label>
@@ -59,7 +65,7 @@
             </div>
             <br>
             <div class="item-form">
-                <label for="">Fecha:</label>
+                <label for="">Fecha de vencimiento:</label>
                 <input type="date" name="input_fecha" id="" required>
             </div>
             <div class="item-form ">
@@ -81,7 +87,7 @@
                 <label for=" ">Responsable:</label>
                 <input type="text" name="input_responsable" id=" " required>
             </div>
-
+             <br>
             <div class="item-from ">
                 <button>Enviar</button>
             </div>
@@ -103,10 +109,10 @@ if($conn->connect_error)
 }
 else
 {
-    echo "Conexión establecida entre php y mysql";
+   // echo "Conexión establecida entre php y mysql";
 }
 
-$sql= "SELECT * FROM lista_tareas";
+$sql= "SELECT * FROM lista_tareas ORDER BY fecha DESC";
 
 //Procesar respuesta
 $respuesta= $conn->query($sql);
@@ -114,7 +120,9 @@ $respuesta= $conn->query($sql);
 while($row=$respuesta->fetch_array())
 {
         ?>
+
         <table border="1">
+        <br>
             <tr>
                 <td><?php echo $row ['num_tarea']; ?></td>
                 <td><?php echo $row ['nombre']; ?></td>

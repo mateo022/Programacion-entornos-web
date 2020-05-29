@@ -4,7 +4,7 @@ $id_para_editar_denuncia = $_GET['id_para_editar'];
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "denuncias";
+$dbname = "evaluacionbd";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
@@ -16,18 +16,17 @@ else
     //echo "Conección establecida con la base de datos...";
 }
 
-$sql = "SELECT * FROM denuncias_transporte WHERE id_pk= {$id_para_editar_denuncia}";
+$sql = "SELECT * FROM lista_tareas WHERE num_tarea= {$id_para_editar_denuncia}";
 $respuesta = $conn->query($sql);
 
 while($row=$respuesta->fetch_array())
 {
     
-    $Lugar= $row['Lugar'];
-    $Fecha= $row['Fecha'];
-    $Hora= $row['Hora'];
-    $Tipo= $row['Tipo'];
-    $Placa= $row['Placa'];
-    $Denuncia= $row['Denuncia'];
+    $nombre= $row['nombre'];
+    $descripcion= $row['descripcion'];
+    $fecha= $row['fecha'];
+    $prioridad= $row['prioridad'];
+    $responsable= $row['responsable'];
 
 }
 
@@ -35,7 +34,7 @@ while($row=$respuesta->fetch_array())
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aplicacion web denuncias Transito y Transporte</title>
+    <title>Aplicacion para la modificacion de tareas</title>
 </head>
 
 <style>
@@ -46,7 +45,7 @@ while($row=$respuesta->fetch_array())
     
     body {
         height: 100%;
-        background-image: url("media/fondo.jpg");
+        background-image: url("media/fondo2.jpg");
         background-repeat: no-repeat;
     }
 
@@ -63,6 +62,9 @@ while($row=$respuesta->fetch_array())
         height: 10%;
 
     }
+    .parra{
+        font-size:23px;
+    }
 
 
 </style>
@@ -70,39 +72,50 @@ while($row=$respuesta->fetch_array())
 <body> 
     <div class="header">
         <center>
-        <h1>Denuncias Web App Transito y Transporte</h1>
+        <h1>Lista de tareas pendientes</h1>
+
+        <p class="parra">Aquí podremos modificar sus tareas de manera correcta y sencilla </p>
         </center>
-        <p>Aquí podremos modificar nuestra denuncia de manera correcta y sencilla </p>
     </div>
+    <center>
     <div class="sesion">
 
-<h3>Edite aquí sus denuncias</h3>
+<h3>Edite aquí sus tareas</h3>
 <form action="editarDenuncia.php" method="POST">
-<input type="hidden" name="input_id" value="<?php echo $id_para_editar_denuncia?>">
+<input type="hidden" name="input_num_tarea" value="<?php echo $id_para_editar_denuncia?>">
     <div class="item-form">
-    <label for="">Lugar:</label>
-        <input value="<?php echo $Lugar; ?>" type="text" name="input_Lugar" id="" required>
+    <label for="">Nombre de tarea:</label>
+        <input value="<?php echo $nombre; ?>" type="text" name="input_nombre" id="" required>
     </div>
     <div class="item-form">
         <label for="">Fecha:</label>
-        <input value="<?php echo $Fecha; ?>" type="date" name="input_Fecha" id="" required>
+        <input value="<?php echo $descripcion; ?>" type="text" name="input_descripcion" id="" required>
     </div>
     <div class="item-form">
-        <label for="">Hora:</label>
-        <input value="<?php echo $Hora; ?>" type="time" name="input_Hora" id="" required>
+        <label for="">Fecha de vencimiento:</label>
+        <input value="<?php echo $fecha; ?>" type="date" name="input_fecha" id="" required>
+    </div>
+    <div class="item-form ">
+                   <p> Prioridad:
+
+    <select value="<?php echo $prioridad; ?>" type="text" name="input_prioridad"  id="" required>
+
+      <option>Baja</option>
+
+      <option>Media</option>
+
+      <option>Alta</option>
+
+    </select>
+
+  </p>     
+
     </div>
     <div class="item-form">
-        <label for="">Tipo de Vehículo:</label>
-        <input value="<?php echo $Tipo; ?>" type="text" name="input_Tipo" id="" required>
+        <label for="">Responsable:</label>
+        <input value="<?php echo $responsable; ?>" type="text" name="input_responsable" id="" required>
     </div>
-    <div class="item-form">
-        <label for="">Placa:</label>
-        <input value="<?php echo $Placa; ?>" type="text" name="input_Placa" id="" required>
-    </div>
-    <div class="item-form">
-        <label for="">Denuncia:</label>
-        <input value="<?php echo $Denuncia; ?>" type="textarea" name="input_Denuncia" id="" required>
-    </div>
+    
     <div class="item-form">
     <button><svg class="bi bi-arrow-repeat" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M2.854 7.146a.5.5 0 0 0-.708 0l-2 2a.5.5 0 1 0 .708.708L2.5 8.207l1.646 1.647a.5.5 0 0 0 .708-.708l-2-2zm13-1a.5.5 0 0 0-.708 0L13.5 7.793l-1.646-1.647a.5.5 0 0 0-.708.708l2 2a.5.5 0 0 0 .708 0l2-2a.5.5 0 0 0 0-.708z"/>
