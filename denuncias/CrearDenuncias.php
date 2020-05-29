@@ -1,23 +1,23 @@
 <?php
 
-$lugar= $_POST['input_lugar'];
-$fecha= $_POST['input_fecha'];
-$hora= $_POST['input_hora'];
-$tipo= $_POST['input_tipo'];
-$placa= $_POST['input_placa'];
-$denuncia= $_POST['input_denuncia'];
+$Lugar= $_POST['input_Lugar'];
+$Fecha= $_POST['input_Fecha'];
+$Hora= $_POST['input_Hora'];
+$Tipo= $_POST['input_Tipo'];
+$Placa= $_POST['input_Placa'];
+$Denuncia= $_POST['input_Denuncia'];
 
-echo $lugar;
+echo $Lugar;
 echo"</br>";
-echo $fecha;
+echo $Fecha;
 echo"</br>";
-echo $hora;
+echo $Hora;
 echo"</br>";
-echo $tipo;
+echo $Tipo;
 echo"</br>";
-echo $placa;
+echo $Placa;
 echo"</br>";
-echo $denuncia;
+echo $Denuncia;
 echo"</br>";
 
 //conexion entre nuestra app y el servidor
@@ -39,7 +39,7 @@ else
 //2. Sentencia sql()
 
 $sql= "Insert into denuncias_transporte (Lugar,Fecha,Hora,Tipo,Placa,Denuncia) 
-values ('".$lugar."', '".$fecha."', '".$hora."', '".$tipo."', '".$placa."', '".$denuncia."')";
+values ('".$Lugar."', '".$Fecha."', '".$Hora."', '".$Tipo."', '".$Placa."', '".$Denuncia."')";
 
 //Procesar respuesta
 $respuesta= $conn->query($sql);
