@@ -82,7 +82,7 @@ while($row=$respuesta->fetch_array())
 
 <h3>Edite aquí sus tareas</h3>
 <form action="editarTarea.php" method="POST">
-<input type="hidden" name="input_num_tarea" value="<?php echo $id_para_editar_denuncia?>">
+<input type="hidden" name="input_num_tarea" value="<?php echo $id_para_editar_tarea?>">
     <div class="item-form">
     <label for="">Nombre de tarea:</label>
         <input value="<?php echo $nombre; ?>" type="text" name="input_nombre" id="" required>
