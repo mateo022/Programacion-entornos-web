@@ -1,6 +1,6 @@
 <?php
 
-$id_para_editar_denuncia = $_GET['id_para_editar'];
+$id_para_editar_tarea = $_GET['id_para_editar'];
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -16,7 +16,7 @@ else
     //echo "Conección establecida con la base de datos...";
 }
 
-$sql = "SELECT * FROM lista_tareas WHERE num_tarea= {$id_para_editar_denuncia}";
+$sql = "SELECT * FROM lista_tareas WHERE num_tarea= {$id_para_editar_tarea}";
 $respuesta = $conn->query($sql);
 
 while($row=$respuesta->fetch_array())
@@ -81,7 +81,7 @@ while($row=$respuesta->fetch_array())
     <div class="sesion">
 
 <h3>Edite aquí sus tareas</h3>
-<form action="editarDenuncia.php" method="POST">
+<form action="editarTarea.php" method="POST">
 <input type="hidden" name="input_num_tarea" value="<?php echo $id_para_editar_denuncia?>">
     <div class="item-form">
     <label for="">Nombre de tarea:</label>
