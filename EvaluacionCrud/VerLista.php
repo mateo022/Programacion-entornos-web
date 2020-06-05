@@ -1,21 +1,7 @@
 <?php
 
 $id_para_editar_tarea = $_GET['id_para_editar'];
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "evaluacionbd";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-else
-{
-    //echo "Conección establecida con la base de datos...";
-}
-
+include_once('conexionBD.php');
 $sql = "SELECT * FROM lista_tareas WHERE num_tarea= {$id_para_editar_tarea}";
 $respuesta = $conn->query($sql);
 
