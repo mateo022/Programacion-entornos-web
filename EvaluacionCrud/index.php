@@ -73,11 +73,11 @@
 
     <select name="input_prioridad">
 
-      <option>Baja</option>
+      <option value="Baja">Baja</option>
 
-      <option>Media</option>
+      <option value="Media">Media</option>
 
-      <option>Alta</option>
+      <option value="Alta">Alta</option>
 
     </select>
 

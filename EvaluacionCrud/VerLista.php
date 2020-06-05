@@ -85,13 +85,35 @@ while($row=$respuesta->fetch_array())
                    <p> Prioridad:
 
     <select value="<?php echo $prioridad; ?>" type="text" name="input_prioridad"  id="" required>
+    <?php
+    switch ($prioridad) {
+        case 'Baja':
+            echo "
+            <option value='Baja' selected='selected'>Baja</option>
+            <option value='Media'>Media</option>
+            <option value='Alta'>Alta</option>";
+            break;
+            case 'Media':
+                echo "
+                <option value='Baja' >Baja</option>
+                <option value='Media' selected='selected'>Media</option>
+                <option value='Alta'>Alta</option>";
+                break;
 
-      <option>Baja</option>
+                case 'Alta':
+                    echo "
+                    <option value='Baja' >Baja</option>
+                    <option value='Media'>Media</option>
+                    <option value='Alta'selected='selected'>Alta</option>";
+                    break;
+        default:
+            # code...
+            break;
+    }
+    
+    ?>
 
-      <option>Media</option>
-
-      <option>Alta</option>
-
+      
     </select>
 
   </p>     
